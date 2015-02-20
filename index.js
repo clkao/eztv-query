@@ -5,7 +5,7 @@ var rsvp = require('rsvp');
 
 module.exports = function (query) {
     if (!query) {
-        callback(new Error('No search query specified'));
+        return rsvp.Promise.reject(new Error('No search query specified'));
     }
 
     var foundMatches = episodeMatcher(query),
